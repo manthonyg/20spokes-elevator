@@ -1,10 +1,5 @@
 // Elevator floor screen needs to be able to display the current floor of an elevator
-// The current floor should be highlighted a different color
-
-// [ CURRENT FLOOR: [] ]
-// [ CURRENT FLOOR: [] ]
-// [ CURRENT FLOOR: [] ]
-
+// Simple text output on the screen based on the current floor
 import React from "react";
 import styled from "styled-components";
 

@@ -15,8 +15,8 @@ const ElevatorFrame = styled.div`
   transition: 1s all;
   flex-grow: 1;
 `;
-const ElevatorDoor = ({ isMoving }) => {
-  return <ElevatorFrame isMoving={isMoving} />;
+const ElevatorDoor = ({ isTraveling }) => {
+  return <ElevatorFrame isMoving={isTraveling} />;
 };
 
 export default ElevatorDoor;

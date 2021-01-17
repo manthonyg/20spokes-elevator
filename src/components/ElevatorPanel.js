@@ -20,16 +20,24 @@ const Panel = styled.div`
   padding: 2rem;
   background-color: #cccccc;
 `;
-const ElevatorPanel = ({ floors, handlePushFloor }) => {
+const ElevatorPanel = ({ floors, handlePushFloor, floorQueue }) => {
+  const checkIfFloorSelected = (floorQueue, floor) => {
+    if (floorQueue.includes(floor)) {
+      return true;
+    }
+    return false;
+  };
+
   return (
     <PanelContainer>
-      <ElevatorFloorScreen></ElevatorFloorScreen>
+      <ElevatorFloorScreen />
       <Panel>
         {floors.map((floor, i) => (
           <ElevatorButton
+            isSelected={checkIfFloorSelected(floorQueue, floor?.ref)}
             handlePushFloor={handlePushFloor}
-            floorNumber={floors.length - i}
-            floorRef={floors[floors.length - i - 1]?.ref}
+            floorName={floor?.name}
+            floorRef={floor?.ref}
           />
         ))}
       </Panel>

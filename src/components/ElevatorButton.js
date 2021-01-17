@@ -3,6 +3,10 @@
 import React from "react";
 import styled from "styled-components";
 
+const ButtonClusterContainer = styled.div`
+  display: flex;
+`;
+
 const ButtonContainer = styled.div`
   padding: 10px;
   display: flex;
@@ -17,17 +21,31 @@ const Button = styled.button`
   height: 100px;
   border: 4px solid
     ${(props) => {
-      if (props.selected) return "green";
+      if (props.isSelected) return "green";
       return "#21212150";
     }};
   font-size: 50px;
   width: 100px;
 `;
-const ElevatorButton = ({ handlePushFloor, floorNumber, floorRef }) => {
+
+const FloorNameText = styled.p`
+  font-size: 10px;
+`;
+const ElevatorButton = ({
+  isSelected,
+  handlePushFloor,
+  floorName,
+  floorRef,
+}) => {
   return (
     <ButtonContainer>
-      <Button onClick={handlePushFloor} value={floorNumber}>
+      <Button
+        onClick={handlePushFloor}
+        isSelected={isSelected}
+        value={floorRef}
+      >
         {floorRef}
+        <FloorNameText>{floorName}</FloorNameText>
       </Button>
     </ButtonContainer>
   );
