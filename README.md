@@ -1,8 +1,9 @@
 # 20Spokes Code Challenge
 
-## To run, clone this repo
+## To run, first clone this repo. Then:
 
 run `npm install`
 
-run `npm start`
+run `npm run start`
+
 
