@@ -1,7 +1,6 @@
-// Elevator floor screen needs to be able to display the current floor of an elevator
-// Simple text output on the screen based on the current floor
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const FloorScreen = styled.div`
   display: flex;
@@ -16,6 +15,10 @@ const FloorScreen = styled.div`
 `;
 const ElevatorFloorScreen = ({ currentFloor }) => {
   return <FloorScreen>Floor: {currentFloor}</FloorScreen>;
+};
+
+ElevatorFloorScreen.propTypes = {
+  currentFloor: PropTypes.number,
 };
 
 export default ElevatorFloorScreen;

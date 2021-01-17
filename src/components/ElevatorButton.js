@@ -1,11 +1,6 @@
-// Elevator button needs to have a value of the floor and a representation of the floor it is on.
-
 import React from "react";
 import styled from "styled-components";
-
-const ButtonClusterContainer = styled.div`
-  display: flex;
-`;
+import PropTypes from "prop-types";
 
 const ButtonContainer = styled.div`
   padding: 10px;
@@ -28,11 +23,9 @@ const Button = styled.button`
   width: 100px;
 `;
 
-const FloorNameText = styled.p`
-  font-size: 10px;
-`;
 const ElevatorButton = ({
   isSelected,
+  isTraveling,
   handlePushFloor,
   floorName,
   floorRef,
@@ -42,13 +35,21 @@ const ElevatorButton = ({
       <Button
         onClick={handlePushFloor}
         isSelected={isSelected}
+        disabled={isTraveling}
         value={floorRef}
       >
         {floorRef}
-        <FloorNameText>{floorName}</FloorNameText>
       </Button>
     </ButtonContainer>
   );
+};
+
+ElevatorButton.propTypes = {
+  isTraveling: PropTypes.bool,
+  isSelected: PropTypes.bool,
+  handlePushFloor: PropTypes.func,
+  floorName: PropTypes.string,
+  floorRef: PropTypes.string,
 };
 
 export default ElevatorButton;

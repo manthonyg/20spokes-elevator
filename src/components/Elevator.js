@@ -1,17 +1,12 @@
-// The kind of info that elevator needs to be passed is
-
-// currentFloor
-// floorQueue
-// isTraveling
-//
-import React, { useState } from "react";
+import React from "react";
 import ElevatorPanel from "./ElevatorPanel";
 import ElevatorDoor from "./ElevatorDoor";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const FLOORS = [
   { name: "pool", ref: "9" },
-  { name: "pool", ref: "8" },
+  { name: "studio", ref: "8" },
   { name: "court", ref: "7" },
   { name: "conference", ref: "6" },
   { name: "tech", ref: "5" },
@@ -25,29 +20,34 @@ const ElevatorContainer = styled.div`
   display: flex;
   height: 100vh;
   width: 100vw;
+  background-image: url("https://picsum.photos/seed/picsum/1000/1000");
+  background-size: cover;
 `;
 const Elevator = ({
   handlePushFloor,
-  handleIsTraveling,
   currentFloor,
   isTraveling,
   floorQueue,
 }) => {
-  const [elevatorInfo, setElevatorInfo] = useState({
-    floors: FLOORS,
-    travelTime: 100,
-  });
-
   return (
     <ElevatorContainer>
       <ElevatorPanel
         floorQueue={floorQueue}
         handlePushFloor={handlePushFloor}
         floors={FLOORS}
+        currentFloor={currentFloor}
+        isTraveling={isTraveling}
       />
       <ElevatorDoor isTraveling={isTraveling} />
     </ElevatorContainer>
   );
+};
+
+Elevator.propTypes = {
+  handlePushFloor: PropTypes.func,
+  currentFloor: PropTypes.number,
+  isTraveling: PropTypes.bool,
+  floorQueue: PropTypes.array,
 };
 
 export default Elevator;

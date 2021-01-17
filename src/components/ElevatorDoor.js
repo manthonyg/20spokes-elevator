@@ -5,6 +5,7 @@ const ElevatorFrame = styled.div`
   border-left: 10px solid #aaaaaa;
   background-color: #cccccc;
   display: flex;
+
   max-width: ${(props) => {
     if (props.isMoving) {
       return "100%";
